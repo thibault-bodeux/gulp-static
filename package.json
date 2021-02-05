@@ -1,0 +1,26 @@
+{
+  "name": "gulp-static",
+  "version": "1.0.0",
+  "description": "Simple frontend development environment using Gulp",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thibault-bodeux/gulp-static.git"
+  },
+  "keywords": [
+    "frontend",
+    "development",
+    "gulp",
+    "server",
+    "assets",
+    "sass"
+  ],
+  "author": "Thibault Bodeux",
+  "bugs": {
+    "url": "https://github.com/thibault-bodeux/gulp-static/issues"
+  },
+  "homepage": "https://github.com/thibault-bodeux/gulp-static#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
