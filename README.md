@@ -9,5 +9,5 @@ Simple frontend development environment using Gulp which provides:
 ### NPM
 ```bash
 npm install -g gulp
-npm install -D gulp
+npm install -D gulp autoprefixer gulp-connect gulp-dart-sass gulp-htmlmin gulp-postcss
 ```

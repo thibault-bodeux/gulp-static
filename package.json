@@ -21,6 +21,11 @@
   },
   "homepage": "https://github.com/thibault-bodeux/gulp-static#readme",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "autoprefixer": "^10.2.4",
+    "gulp": "^4.0.2",
+    "gulp-connect": "^5.7.0",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-postcss": "^9.0.0"
   }
 }
