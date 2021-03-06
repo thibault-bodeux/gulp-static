@@ -4,6 +4,7 @@ const htmlmin = require("gulp-htmlmin");
 const sass = require("gulp-dart-sass");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
+const babel = require('gulp-babel');
 
 // CONFIGURATION
 
@@ -23,6 +24,11 @@ const configs = {
     out: "./dist/css/",
     watch: "./src/scss/**/*.scss",
   },
+  js: {
+    in: "./src/js/**/*.js",
+    out: "./dist/js/",
+    watch: "./src/js/**/*.js",
+  }
 };
 
 // PIPELINE
@@ -53,6 +59,14 @@ function compileScss() {
     .pipe(connect.reload());
 }
 
+//* Compile JS files with Babel
+function compileJs() {
+  return src(configs.js.in)
+    .pipe(babel({presets: ['@babel/env']}))
+    .pipe(dest(configs.js.out))
+    .pipe(connect.reload());
+}
+
 // WATCHERS
 
 //* Watch and compile changes of Html files
@@ -65,13 +79,18 @@ async function watchScss() {
   return watch([configs.scss.watch], series(compileScss));
 }
 
+//* Watch and compile changes of JS files
+async function watchJs() {
+  return watch([configs.js.watch], series(compileJs));
+}
+
 // TASKS
 
 //* Compile all developement files
-exports.compile = series(compileHtml, compileScss);
+exports.compile = series(compileHtml, compileScss, compileJs);
 
 //* Task launched when using `gulp`
 exports.default = series(
-  series(compileHtml, compileScss),
-  parallel(connectInit, watchHtml, watchScss)
+  series(compileHtml, compileScss, compileJs),
+  parallel(connectInit, watchHtml, watchScss, watchJs)
 );
